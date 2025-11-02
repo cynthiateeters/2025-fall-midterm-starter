@@ -1,0 +1,216 @@
+/* ============================================
+   MIDTERM STARTER CODE - LAYOUT ONLY
+   This file handles only structural layout.
+   You'll add your color system and typography.
+   ============================================ */
+
+/* ============================================
+   LAYOUT CUSTOM PROPERTIES
+   Adjust these values to customize spacing
+   ============================================ */
+:root {
+  /* Grid layout variables */
+  --grid-gap: 2rem;
+  /* Space between panels */
+  --grid-min-column: 300px;
+  /* Minimum panel width before wrapping */
+  --grid-max-width: 1400px;
+  /* Maximum width of grid container */
+
+  /* Container spacing variables */
+  --container-padding: 2rem;
+  /* Padding around main content */
+  --panel-padding: 1.5rem;
+  /* Internal padding for each panel */
+
+  /* Vertical rhythm variables */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+}
+
+/* ============================================
+   BASIC RESET
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   PAGE STRUCTURE
+   ============================================ */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: var(--space-lg) var(--container-padding);
+  text-align: center;
+}
+
+footer {
+  padding: var(--space-lg) var(--container-padding);
+  margin-top: auto;
+  text-align: center;
+}
+
+/* ============================================
+   MAIN GRID CONTAINER
+   This is where the magic happens!
+   ============================================ */
+.story-grid {
+  /* Center the grid and set max width */
+  max-width: var(--grid-max-width);
+  margin: 0 auto;
+  padding: var(--container-padding);
+  width: 100%;
+
+  /* Modern CSS Grid - auto-responsive without media queries */
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+      minmax(min(var(--grid-min-column), 100%), 1fr));
+  gap: var(--grid-gap);
+
+  /*
+    How this works:
+    - auto-fit: Creates as many columns as will fit
+    - minmax(): Sets min and max size for each column
+    - min(300px, 100%): Prevents horizontal scroll on tiny screens
+    - 1fr: Columns grow equally to fill space
+
+    Result:
+    - Mobile (< 300px): 1 column, 100% width
+    - Mobile/Tablet: 1-2 columns depending on space
+    - Desktop: 2-3 columns depending on space
+  */
+}
+
+/* ============================================
+   PANEL (ARTICLE) STRUCTURE
+   Each card/panel layout
+   ============================================ */
+.panel {
+  /* Internal spacing */
+  padding: var(--panel-padding);
+
+  /* Flexbox for vertical content flow */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* Panel headings */
+.panel h2 {
+  /* Spacing only - you'll add typography styles */
+  margin-bottom: var(--space-xs);
+}
+
+/* ============================================
+   FIGURE ELEMENT
+   Container for SVG and caption
+   ============================================ */
+.panel figure {
+  /* Remove browser default margins */
+  margin: 0;
+
+  /* Vertical layout */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ============================================
+   SVG IMAGES
+   Make SVGs responsive and maintainable
+   ============================================ */
+.panel figure svg {
+  /* Responsive sizing */
+  width: 100%;
+  height: auto;
+
+  /* Maintain aspect ratio */
+  display: block;
+}
+
+/* ============================================
+   FIGCAPTION
+   Caption text below images
+   ============================================ */
+.panel figcaption {
+  /* Basic spacing - you'll add typography */
+  margin-top: var(--space-xs);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   Fine-tune spacing at different sizes
+   ============================================ */
+
+/* Tablets and up: Increase spacing slightly */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: 3rem;
+  }
+}
+
+/* Large screens: Even more breathing room */
+@media (min-width: 1024px) {
+  :root {
+    --grid-gap: 2.5rem;
+    --container-padding: 4rem;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES (Optional)
+   Uncomment if you want flexibility
+   ============================================ */
+
+/*
+  Force specific column counts at certain sizes
+  (Only use if you need precise control)
+*/
+
+/*
+@media (min-width: 768px) {
+  .story-grid.two-column {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .story-grid.three-column {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+*/
+
+/* ============================================
+   NOTES FOR STUDENTS
+   ============================================
+
+   What's missing (intentionally):
+   - Colors and backgrounds
+   - Typography (fonts, sizes, weights)
+   - Borders and shadows
+   - Hover effects
+   - Decorative styling
+
+   You need to add:
+   1. Your color system using CSS custom properties
+   2. Your typography system (fonts, sizes, line heights)
+   3. Visual styling for panels (borders, shadows, backgrounds)
+   4. Any decorative elements specific to your story
+
+   What you probably shouldn't change:
+   - The .story-grid display: grid and grid-template-columns
+   - The semantic structure (main, article, figure)
+   - The min(300px, 100%) trick for preventing overflow
+
+   ============================================ */
