@@ -140,9 +140,18 @@ footer {
 
 /* ============================================
    FIGCAPTION
-   Caption text below images
+   Brief image description (1-2 sentences)
    ============================================ */
 .panel figcaption {
+  /* Basic spacing - you'll add typography */
+  margin-top: var(--space-xs);
+}
+
+/* ============================================
+   PARAGRAPH
+   Narrative story text (2-4 sentences)
+   ============================================ */
+.panel p {
   /* Basic spacing - you'll add typography */
   margin-top: var(--space-xs);
 }
@@ -206,11 +215,13 @@ footer {
    1. Your color system using CSS custom properties
    2. Your typography system (fonts, sizes, line heights)
    3. Visual styling for panels (borders, shadows, backgrounds)
-   4. Any decorative elements specific to your story
+   4. Styling for both figcaption AND paragraph text
+   5. Any decorative elements specific to your story
 
    What you probably shouldn't change:
    - The .story-grid display: grid and grid-template-columns
-   - The semantic structure (main, article, figure)
+   - The semantic structure (main, article, figure, figcaption, p)
    - The min(300px, 100%) trick for preventing overflow
+   - Both figcaption AND paragraph in each panel
 
    ============================================ */
